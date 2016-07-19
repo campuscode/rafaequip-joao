@@ -2,7 +2,6 @@ require 'rails_helper'
 
 feature 'User create contract' do
   scenario 'successfully' do
-
     contract = Contract.new(number: 1234,
                             request_number: 5678,
                             customer: 'Campus Code',
@@ -11,10 +10,9 @@ feature 'User create contract' do
                             deadline: 10,
                             equipment: 'Furadeira',
                             start_date: Date.new,
-                            end_date: Date.new+1,
+                            end_date: Date.new + 1,
                             price: 2500,
-                            discount: 5
-                            )
+                            discount: 5)
 
     visit root_path
 
@@ -45,7 +43,15 @@ feature 'User create contract' do
     expect(page).to have_content contract.end_date
     expect(page).to have_content contract.price
     expect(page).to have_content contract.discount
-
   end
 
+  scenario 'Fail' do
+    visit root_path
+
+    click_on 'Novo Contrato'
+
+    click_on 'Cadastrar Contrato'
+
+    expect(page).to have_content('Erro ao cadastrar contrato.')
+  end
 end

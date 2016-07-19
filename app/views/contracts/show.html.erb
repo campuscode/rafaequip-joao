@@ -1,11 +1,33 @@
-<%= @contract.number %>
-<%= @contract.request_number %>
-<%= @contract.customer %>
-<%= @contract.address %>
-<%= @contract.contact %>
-<%= @contract.deadline %>
-<%= @contract.equipment %>
-<%= @contract.start_date %>
-<%= @contract.end_date %>
-<%= @contract.price %>
-<%= @contract.discount %>
+<section>
+  <div class="panel panel-primary">
+    <div class="panel panel-heading">
+      Detalhe do Contrato
+    </div>
+    <div class="panel-body">
+      <dl>
+        <dt>Número</dt>
+        <dd>  <%= @contract.number %></dd>
+        <dt>Número do Pedido</dt>
+        <dd>  <%= @contract.request_number %></dd>
+        <dt>Cliete</dt>
+        <dd>  <%= @contract.customer %></dd>
+        <dt>Endereço</dt>
+        <dd>  <%= @contract.address %></dd>
+        <dt>Contato</dt>
+        <dd>  <%= @contract.contact %></dd>
+        <dt>Prazo</dt>
+        <dd>  <%= @contract.deadline %></dd>
+        <dt>Equipamentos</dt>
+        <dd>  <%= @contract.equipment %></dd>
+        <dt>Data de ínicio</dt>
+        <dd>  <%= @contract.start_date %></dd>
+        <dt>Data de fim</dt>
+        <dd>  <%= @contract.end_date %></dd>
+        <dt>Preço</dt>
+        <dd>  <%= @contract.price %></dd>
+        <dt>Desconto</dt>
+        <dd>  <%= @contract.discount %></dd>
+      </dl>
+    </div>
+  </div>
+</section>

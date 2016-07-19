@@ -4,16 +4,27 @@ class ContractsController < ApplicationController
   end
 
   def create
-    @contract = Contract.new(params.require(:contract).permit(:number,
-    :request_number, :customer, :address, :contact, :deadline, :equipment,
-    :start_date, :end_date, :price, :discount))
+    @contract = Contract.new(params_contract)
 
     if @contract.save
+      flash[:notice] = 'Contrato criado com sucesso.'
       redirect_to @contract
+    else
+      flash.now[:error] = 'Erro ao cadastrar contrato.'
+      render 'new'
     end
   end
 
   def show
     @contract = Contract.find(params[:id])
+  end
+
+  private
+
+  def params_contract
+    params
+      .require(:contract).permit(:number, :request_number, :customer, :address,
+                                 :contact, :deadline, :equipment, :start_date,
+                                 :end_date, :price, :discount)
   end
 end

@@ -4,10 +4,11 @@ class ProposalsController < ApplicationController
   end
 
   def create
-    @proposal = Proposal.new(params.require(:proposal).permit(:name, :email, :phone, :description))
-    if @proposal.valid?
-      @proposal.save
-      flash[:notice] = "Seu orçamento foi recebido com sucesso. Aguarde nosso contato."
+    @proposal = Proposal.new(params
+      .require(:proposal).permit(:name, :email, :phone, :description))
+    if @proposal.save
+      flash[:notice] = 'Seu orçamento foi recebido com sucesso. Aguarde nosso
+                        contato.'
       redirect_to @proposal
     else
       flash.now[:error] = 'Falha ao enviar orçamento'
