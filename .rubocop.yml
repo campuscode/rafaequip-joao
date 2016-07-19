@@ -5,9 +5,6 @@ Style/MultilineOperationIndentation:
 Rails:
   Enabled: true
 AllCops:
-  Include:
-    - '**/Rakefile'
-    - '**/config.ru'
   Exclude:
     - 'bin/**/*'
     - 'vendor/**/*'
@@ -16,3 +13,5 @@ AllCops:
     - 'script/**/*'
     - 'spec/rails_helper.rb'
     - 'spec/spec_helper.rb'
+    - '**/Rakefile'
+    - '**/config.ru'
