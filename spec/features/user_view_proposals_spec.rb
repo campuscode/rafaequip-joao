@@ -9,7 +9,7 @@ feature 'User view list of proposals' do
     proposals.each do |proposal|
       expect(page).to have_link proposal.name
       expect(page).to have_content proposal.email
-      expect(page).to have_content proposal.created_at
+      expect(page).to have_content(I18n.l(proposal.created_at, format: :short))
     end
   end
 end
