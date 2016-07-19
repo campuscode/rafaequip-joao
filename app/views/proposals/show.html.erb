@@ -1,0 +1,20 @@
+<section>
+  <div class="panel panel-primary">
+    <div class="panel panel-heading">
+      Detalhe do Orçamento
+    </div>
+    <div class="panel-body">
+      <dl>
+        <dt>Nome </dt>
+        <dd><%= @proposal.name %></dd>
+        <dt>Email </dt>
+        <dd><%= @proposal.email %></dd>
+        <dt>Telefone </dt>
+        <dd><%= @proposal.phone %></dd>
+        <dt>Descrição </dt>
+        <dd><%= @proposal.description %></dd>
+    </dl>
+    </div>
+  </div>
+  <%= link_to 'Voltar', new_proposal_path %>
+</section>
