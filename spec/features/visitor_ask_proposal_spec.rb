@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature "Visitor ask Proposal" do
-  scenario "succesfully" do
+  scenario "successfully" do
 
     visit new_proposal_path
 
