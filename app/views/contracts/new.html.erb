@@ -1,0 +1,14 @@
+<%= simple_form_for @contract do |f| %>
+  <%= f.input :number, label: 'Número do Contrato' %>
+  <%= f.input :request_number, label: 'Número do Pedido' %>
+  <%= f.input :customer, label:'Cliente' %>
+  <%= f.input :address, label:'Endereço' %>
+  <%= f.input :contact, label:'Contato' %>
+  <%= f.input :deadline, label:'Prazo' %>
+  <%= f.input :equipment, label:'Equipamentos' %>
+  <%= f.input :start_date, label:'Data de Início', as: :string  %>
+  <%= f.input :end_date, label:'Data de Término', as: :string %>
+  <%= f.input :price, label:'Preço' %>
+  <%= f.input :discount, label:'Desconto' %>
+  <%= f.submit 'Cadastrar Contrato' %>
+<% end %>
