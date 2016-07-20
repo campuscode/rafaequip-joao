@@ -15,13 +15,10 @@ feature 'User view Equipment' do
       expect(page).to have_content(e.price)
       expect(page).to have_content(e.status)
     end
-
   end
 
   scenario 'without equipment' do
     visit equipment_index_path
-    expect(page).to have_content("Não há equipamentos cadastrados.")
+    expect(page).to have_content('Não há equipamentos cadastrados.')
   end
-
-
 end
