@@ -1,0 +1,35 @@
+<section>
+  <h2> Lista de Equipamentos </h2>
+  <table class='table table-striped'>
+    <tr>
+        <td>
+          <strong>Código</strong>
+        </td>
+        <td>
+          <strong>Nome</strong>
+        </td>
+        <td>
+          <strong>Status</strong>
+        </td>
+        <td>
+          <strong>Preço </strong>
+        </td>
+    </tr>
+    <% @equipment.each do |eq| %>
+      <tr>
+        <td>
+          <%= eq.code %>
+        </td>
+        <td>
+          <%= eq.name %>
+        </td>
+        <td>
+          <%= eq.status %>
+        </td>
+        <td>
+          <%= eq.price %>
+        </td>
+      </tr>
+    <% end %>
+  </class>
+</section>

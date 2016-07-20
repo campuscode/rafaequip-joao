@@ -37,6 +37,6 @@ feature 'User create equipment' do
 
     click_on 'Cadastrar Equipamento'
 
-    expect(page).to have_content('Erro ao cadastrar equipamento')
+    expect(page).to have_content 'Erro ao cadastrar equipamento'
   end
 end

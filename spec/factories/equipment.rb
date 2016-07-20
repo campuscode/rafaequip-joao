@@ -1,10 +1,11 @@
 FactoryGirl.define do
   factory :equipment do
-    name 'MyString'
-    serial_number 1
-    supplier 'MyString'
-    category 'MyString'
-    price 1.5
-    status 'MyString'
+    code 'Fur_01'
+    name 'Furadeira de alto impacto'
+    serial_number 12_345
+    supplier 'Bosh'
+    category 'furadeira'
+    price 2500
+    status 'Alugado'
   end
 end

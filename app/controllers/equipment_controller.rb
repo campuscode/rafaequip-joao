@@ -20,4 +20,9 @@ class EquipmentController < ApplicationController
   def show
     @equipment = Equipment.find(params[:id])
   end
+
+  def index
+    @equipment = Equipment.all
+    flash.now[:error] = 'Nenhum equipamento cadastrado.' if @equipment.empty?
+  end
 end

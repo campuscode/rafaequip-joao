@@ -11,7 +11,7 @@
   <body>
 
     <div class="container">
-      <h1> RafaEquip </h1>
+      <h1> <%= link_to 'RafaEquip', root_path %> </h1>
       <% if flash[:error] %>
         <div class="alert alert-danger">
           <%= flash.now[:error] %>
