@@ -1,0 +1,21 @@
+<section>
+  <div class="row">
+    <% @equipment.each do |equipment| %>
+      <div class="col-md-6">
+        <div class="panel panel-info">
+          <div class="panel panel-heading">
+            <%=link_to equipment.name, equipment %>
+          </div>
+          <div class="pane panel-body">
+            <%=equipment.code %>
+            <%=equipment.serial_number %>
+            <%=equipment.supplier %>
+            <%=equipment.category %>
+            <%=equipment.price %>
+            <%=equipment.status %>
+          </div>
+        </div>
+      </div>
+    <%end%>
+  </div>
+</section>
