@@ -1,0 +1,17 @@
+<section>
+  <div class="row">
+    <% @proposals.each do |proposal| %>
+      <div class="col-md-6">
+        <div class="panel panel-info">
+          <div class="panel panel-heading">
+            <%=link_to proposal.name, proposal %>
+          </div>
+          <div class="pane panel-body">
+            <%=proposal.email %>
+            <%=l proposal.created_at, format: :short%>
+          </div>
+        </div>
+      </div>
+    <%end%>
+  </div>
+</section>

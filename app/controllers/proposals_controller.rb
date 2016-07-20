@@ -3,6 +3,10 @@ class ProposalsController < ApplicationController
     @proposal = Proposal.new
   end
 
+  def index
+    @proposals = Proposal.all.reverse
+  end
+
   def create
     @proposal = Proposal.new(params
       .require(:proposal).permit(:name, :email, :phone, :description))
