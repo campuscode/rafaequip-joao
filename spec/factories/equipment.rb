@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :equipment do
     sequence(:code) { |n| "FU#{n}" }
-    name 'Furadeira'
+    sequence(:name) { |n| "Furadeira_#{n}" }
     sequence(:serial_number, &:to_s)
     supplier 'Fornecedor'
     category 'Furadeira'

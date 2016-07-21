@@ -18,7 +18,11 @@
         <dt>Prazo</dt>
         <dd>  <%= @contract.deadline %></dd>
         <dt>Equipamentos</dt>
-        <dd>  <%= @contract.equipment.first.name %></dd>
+        <dd>
+          <% @contract.equipment.each do |equipment| %>
+            <%= equipment.name %>
+          <% end %>
+        </dd>
         <dt>Data de ínicio</dt>
         <dd>  <%= @contract.start_date %></dd>
         <dt>Data de fim</dt>
