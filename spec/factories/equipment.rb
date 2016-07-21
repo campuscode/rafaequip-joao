@@ -1,11 +1,12 @@
 FactoryGirl.define do
   factory :equipment do
-    code 'Fur_01'
-    name 'Furadeira de alto impacto'
-    serial_number 12_345
-    supplier 'Bosh'
-    category 'furadeira'
-    price 2500
-    status 'Alugado'
+
+    sequence(:code) { |n| "FU#{n}" }
+    name 'Furadeira'
+    sequence(:serial_number, &:to_s)
+    supplier 'Fornecedor'
+    category 'Furadeira'
+    price 1.5
+    status 'Disponível'
   end
 end

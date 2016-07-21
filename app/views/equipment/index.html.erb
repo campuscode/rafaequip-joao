@@ -1,35 +1,21 @@
 <section>
-  <h2> Lista de Equipamentos </h2>
-  <table class='table table-striped'>
-    <tr>
-        <td>
-          <strong>Código</strong>
-        </td>
-        <td>
-          <strong>Nome</strong>
-        </td>
-        <td>
-          <strong>Status</strong>
-        </td>
-        <td>
-          <strong>Preço </strong>
-        </td>
-    </tr>
-    <% @equipment.each do |eq| %>
-      <tr>
-        <td>
-          <%= eq.code %>
-        </td>
-        <td>
-          <%= eq.name %>
-        </td>
-        <td>
-          <%= eq.status %>
-        </td>
-        <td>
-          <%= eq.price %>
-        </td>
-      </tr>
-    <% end %>
-  </class>
+  <div class="row">
+    <% @equipment.each do |equipment| %>
+      <div class="col-md-6">
+        <div class="panel panel-info">
+          <div class="panel panel-heading">
+            <%=link_to equipment.name, equipment %>
+          </div>
+          <div class="pane panel-body">
+            <%=equipment.code %>
+            <%=equipment.serial_number %>
+            <%=equipment.supplier %>
+            <%=equipment.category %>
+            <%=equipment.price %>
+            <%=equipment.status %>
+          </div>
+        </div>
+      </div>
+    <%end%>
+  </div>
 </section>

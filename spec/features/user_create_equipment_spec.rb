@@ -34,9 +34,8 @@ feature 'User create equipment' do
     visit root_path
 
     click_on 'Novo Equipamento'
-
     click_on 'Cadastrar Equipamento'
-
-    expect(page).to have_content 'Erro ao cadastrar equipamento'
+    
+    expect(page).to have_content 'Não há equipamentos cadastrados.'
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160720003152) do
+ActiveRecord::Schema.define(version: 20160721005052) do
 
   create_table "contracts", force: :cascade do |t|
     t.integer  "number"
@@ -29,15 +29,25 @@ ActiveRecord::Schema.define(version: 20160720003152) do
   end
 
   create_table "equipment", force: :cascade do |t|
+    t.string   "code"
     t.string   "name"
-    t.integer  "serial_number"
+    t.string   "serial_number"
     t.string   "supplier"
     t.string   "category"
     t.float    "price"
     t.string   "status"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.string   "code"
+  end
+
+  create_table "prices", force: :cascade do |t|
+    t.float    "amount"
+    t.integer  "equipment_id"
+    t.integer  "rental_period_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["equipment_id"], name: "index_prices_on_equipment_id"
+    t.index ["rental_period_id"], name: "index_prices_on_rental_period_id"
   end
 
   create_table "proposals", force: :cascade do |t|
@@ -47,6 +57,12 @@ ActiveRecord::Schema.define(version: 20160720003152) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "rental_periods", force: :cascade do |t|
+    t.integer  "period"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

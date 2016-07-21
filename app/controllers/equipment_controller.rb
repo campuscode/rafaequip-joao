@@ -1,4 +1,9 @@
 class EquipmentController < ApplicationController
+  def index
+    @equipment = Equipment.all
+    flash.now[:notice] = 'Não há equipamentos cadastrados.' if @equipment.empty?
+  end
+
   def new
     @equipment = Equipment.new
   end
@@ -12,17 +17,12 @@ class EquipmentController < ApplicationController
       flash[:notice] = 'Equipamento criado com sucesso.'
       redirect_to @equipment
     else
-      flash.now[:error] = 'Erro ao cadastrar equipamento.'
+      flash.now[:error] = 'Não há equipamentos cadastrados.'
       render 'new'
     end
   end
 
   def show
     @equipment = Equipment.find(params[:id])
-  end
-
-  def index
-    @equipment = Equipment.all
-    flash.now[:error] = 'Nenhum equipamento cadastrado.' if @equipment.empty?
   end
 end

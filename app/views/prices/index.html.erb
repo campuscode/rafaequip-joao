@@ -1,0 +1,22 @@
+<section>
+  <table class='table table-striped'>
+    <tr>
+      <td>
+        <strong>Equipamento</strong>
+      </td>
+      <td>
+        <strong>Período</strong>
+      </td>
+      <td>
+        <strong>Valor</strong>
+      </td>
+    </tr>
+    <% @prices.each do |price| %>
+      <tr>
+        <td> <%= price.equipment.name %></td>
+        <td> <%= price.rental_period.period %> </td>
+        <td> <%= price.amount %> </td>
+      </tr>
+    <% end %>
+  </table>
+</section>
