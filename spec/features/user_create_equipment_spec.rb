@@ -35,7 +35,7 @@ feature 'User create equipment' do
 
     click_on 'Novo Equipamento'
     click_on 'Cadastrar Equipamento'
-    
+
     expect(page).to have_content 'Não há equipamentos cadastrados.'
   end
 end

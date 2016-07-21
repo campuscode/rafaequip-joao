@@ -11,19 +11,18 @@
   <body>
 
     <div class="container">
-      <h1> <%= link_to 'RafaEquip', root_path %> </h1>
-      <% if flash[:error] %>
-        <div class="alert alert-danger">
-          <%= flash.now[:error] %>
+      <div class="well">
+        <h1> <%= link_to 'RafaEquip', root_path %> </h1> <small>Gestão de Contratos e Equipamentos</small>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <%= render 'home/menu' %>
         </div>
-      <% end %>
-      <% if flash[:notice] %>
-        <div class="alert alert-success">
-          <%= flash[:notice] %>
+        <div class="col-md-9">
+          <%= render 'home/noticies' %>
+          <%= yield %>
         </div>
-      <% end %>
-      <br/>
-      <%= yield %>
+      </div>
     </div>
   </body>
 </html>

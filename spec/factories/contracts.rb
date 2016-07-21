@@ -1,14 +1,15 @@
 FactoryGirl.define do
   factory :contract do
-    number 1
-    request_number 1
-    customer 'MyString'
-    address 'MyString'
-    contact 'MyString'
-    deadline 1
-    equipment 'MyText'
-    start_date '2016-07-18'
-    end_date '2016-07-18'
-    price 1.5
+    number 1234
+    request_number 5678
+    customer 'Campus Code'
+    address 'Pamplona, 795'
+    contact 'João de barro'
+    deadline 10
+
+    start_date Date.new
+    end_date Date.new
+    price 2500
+    discount 5
   end
 end
