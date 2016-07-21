@@ -2,7 +2,6 @@ require 'rails_helper'
 
 feature 'User list all prices' do
   scenario 'successfully' do
-
     price = create(:price)
     equipment = price.equipment
     rental_period = price.rental_period
