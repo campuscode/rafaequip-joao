@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :contract do
     number 1234
     request_number 5678
-    customer 'Campus Code'
+    customer
     address 'Pamplona, 795'
     contact 'João de barro'
     deadline 10

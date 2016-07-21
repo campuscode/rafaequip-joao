@@ -4,7 +4,7 @@ feature 'User create contract' do
   scenario 'successfully' do
     equipment = create(:equipment)
 
-    contract = create(:contract)
+    contract = build(:contract)
 
     visit root_path
 
@@ -12,7 +12,8 @@ feature 'User create contract' do
 
     fill_in 'Número do Contrato', with: contract.number
     fill_in 'Número do Pedido', with: contract.request_number
-    fill_in 'Cliente', with: contract.customer
+    fill_in 'Nome do Cliente', with: contract.customer.name
+    fill_in 'CNPJ do Cliente', with: contract.customer.cnpj
     fill_in 'Endereço', with: contract.address
     fill_in 'Contato', with: contract.contact
     fill_in 'Prazo', with: contract.deadline
@@ -27,7 +28,8 @@ feature 'User create contract' do
 
     expect(page).to have_content contract.number
     expect(page).to have_content contract.request_number
-    expect(page).to have_content contract.customer
+    expect(page).to have_content contract.customer.name
+    expect(page).to have_content contract.customer.cnpj
     expect(page).to have_content contract.address
     expect(page).to have_content contract.contact
     expect(page).to have_content contract.deadline
@@ -41,7 +43,7 @@ feature 'User create contract' do
   scenario 'multiple equipment' do
     equipment = create_list(:equipment, 6)
 
-    contract = create(:contract)
+    contract = build(:contract)
 
     visit root_path
 
@@ -49,7 +51,8 @@ feature 'User create contract' do
 
     fill_in 'Número do Contrato', with: contract.number
     fill_in 'Número do Pedido', with: contract.request_number
-    fill_in 'Cliente', with: contract.customer
+    fill_in 'Nome do Cliente', with: contract.customer.name
+    fill_in 'CNPJ do Cliente', with: contract.customer.cnpj
     fill_in 'Endereço', with: contract.address
     fill_in 'Contato', with: contract.contact
     fill_in 'Prazo', with: contract.deadline
@@ -67,7 +70,8 @@ feature 'User create contract' do
 
     expect(page).to have_content contract.number
     expect(page).to have_content contract.request_number
-    expect(page).to have_content contract.customer
+    expect(page).to have_content contract.customer.name
+    expect(page).to have_content contract.customer.cnpj
     expect(page).to have_content contract.address
     expect(page).to have_content contract.contact
     expect(page).to have_content contract.deadline
@@ -84,7 +88,7 @@ feature 'User create contract' do
   scenario 'without equipment' do
     equipment = create(:equipment)
 
-    contract = create(:contract)
+    contract = build(:contract)
 
     visit root_path
 
@@ -92,7 +96,8 @@ feature 'User create contract' do
 
     fill_in 'Número do Contrato', with: contract.number
     fill_in 'Número do Pedido', with: contract.request_number
-    fill_in 'Cliente', with: contract.customer
+    fill_in 'Nome do Cliente', with: contract.customer.name
+    fill_in 'CNPJ do Cliente', with: contract.customer.cnpj
     fill_in 'Endereço', with: contract.address
     fill_in 'Contato', with: contract.contact
     fill_in 'Prazo', with: contract.deadline
@@ -106,7 +111,8 @@ feature 'User create contract' do
 
     expect(page).to have_content contract.number
     expect(page).to have_content contract.request_number
-    expect(page).to have_content contract.customer
+    expect(page).to have_content contract.customer.name
+    expect(page).to have_content contract.customer.cnpj
     expect(page).to have_content contract.address
     expect(page).to have_content contract.contact
     expect(page).to have_content contract.deadline
