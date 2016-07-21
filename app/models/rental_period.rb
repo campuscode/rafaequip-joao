@@ -1,0 +1,2 @@
+class RentalPeriod < ApplicationRecord
+end

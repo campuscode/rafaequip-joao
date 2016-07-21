@@ -17,7 +17,7 @@ class EquipmentController < ApplicationController
       flash[:notice] = 'Equipamento criado com sucesso.'
       redirect_to @equipment
     else
-      flash.now[:error] = 'Erro ao cadastrar equipamento.'
+      flash.now[:error] = 'Não há equipamentos cadastrados.'
       render 'new'
     end
   end
