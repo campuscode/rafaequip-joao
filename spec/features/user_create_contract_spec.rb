@@ -2,17 +2,9 @@ require 'rails_helper'
 
 feature 'User create contract' do
   scenario 'successfully' do
-    contract = Contract.new(number: 1234,
-                            request_number: 5678,
-                            customer: 'Campus Code',
-                            address: 'Pamplona, 795',
-                            contact: 'João de barro',
-                            deadline: 10,
-                            equipment: 'Furadeira',
-                            start_date: Date.new,
-                            end_date: Date.new + 1,
-                            price: 2500,
-                            discount: 5)
+    equipment = create(:equipment)
+
+    contract = build(:contract)
 
     visit root_path
 
@@ -24,7 +16,8 @@ feature 'User create contract' do
     fill_in 'Endereço', with: contract.address
     fill_in 'Contato', with: contract.contact
     fill_in 'Prazo', with: contract.deadline
-    fill_in 'Equipamentos', with: contract.equipment
+    check(equipment.name)
+
     fill_in 'Data de Início', with: contract.start_date
     fill_in 'Data de Término', with: contract.end_date
     fill_in 'Preço', with: contract.price
@@ -38,7 +31,7 @@ feature 'User create contract' do
     expect(page).to have_content contract.address
     expect(page).to have_content contract.contact
     expect(page).to have_content contract.deadline
-    expect(page).to have_content contract.equipment
+    expect(page).to have_content equipment.name
     expect(page).to have_content contract.start_date
     expect(page).to have_content contract.end_date
     expect(page).to have_content contract.price

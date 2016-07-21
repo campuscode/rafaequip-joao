@@ -20,7 +20,7 @@
       <%= f.input :deadline, label:'Prazo' %>
     </div>
     <div class="form-group">
-      <%= f.input :equipment, label:'Equipamentos' %>
+      <%= f.association :equipment, as: :check_boxes %>
     </div>
     <div class="form-group">
       <%= f.input :start_date, label:'Data de Início', as: :string  %>

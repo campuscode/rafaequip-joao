@@ -5,7 +5,6 @@ class ContractsController < ApplicationController
 
   def create
     @contract = Contract.new(params_contract)
-
     if @contract.save
       flash[:notice] = 'Contrato criado com sucesso.'
       redirect_to @contract
@@ -24,7 +23,8 @@ class ContractsController < ApplicationController
   def params_contract
     params
       .require(:contract).permit(:number, :request_number, :customer, :address,
-                                 :contact, :deadline, :equipment, :start_date,
-                                 :end_date, :price, :discount)
+                                 :contact, :deadline, :start_date,
+                                 :end_date, :price, :discount,
+                                 equipment_ids: [])
   end
 end
