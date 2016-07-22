@@ -6,7 +6,7 @@ class ReceiptsController < ApplicationController
       flash.now[:error] = 'Só pode haver um recibo de entrega por contrato'
       render 'show'
     else
-      @receipt = @contract.create_receipt(delivery_date: Time.now.to_f)
+      @receipt = @contract.create_receipt(delivery_date: Time.zone.now)
       flash.now[:notice] = 'Recibo criado com sucesso.'
       redirect_to @receipt
     end

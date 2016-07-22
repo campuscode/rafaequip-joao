@@ -6,7 +6,7 @@
     <div class="panel-body">
       <div class="row">
         <div class="col-md-offset-2 col-md-8">
-          <p class="text-center">São Paulo, <%=l(@receipt.contract.start_date, format: :long) %> </p>
+          <p class="text-center">São Paulo, <%=l(@receipt.delivery_date, format: :long) %> </p>
           <p>
              <%= "Eu, #{@receipt.contract.contact}, em nome da empresa
                   #{@receipt.contract.customer}, inscrita no CNPJ
