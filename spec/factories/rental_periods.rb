@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :rental_period do
-    period 1
+    sequence(:period) { |n| n }
   end
 end
