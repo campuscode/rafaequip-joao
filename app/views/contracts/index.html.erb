@@ -1,0 +1,17 @@
+<section>
+  <div class="row">
+    <% @contracts.each do |contract| %>
+      <div class="col-md-6">
+        <div class="panel panel-info">
+          <div class="panel panel-heading">
+            <%=link_to contract.number, contract %>
+          </div>
+          <div class="pane panel-body">
+            <%= contract.customer %>
+            <%= contract.request_number %>
+          </div>
+        </div>
+      </div>
+    <%end%>
+  </div>
+</section>

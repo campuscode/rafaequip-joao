@@ -6,7 +6,9 @@ class ReceiptsController < ApplicationController
       @receipt.save
       flash.now[:notice] = 'Recibo criado com sucesso.'
       redirect_to @receipt
-
+    end
+    def show
+      @receipt = Receipt.find(params[:id])
     end
 
   end

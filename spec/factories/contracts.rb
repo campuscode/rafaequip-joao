@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :contract do
-    number 1234
+    sequence(:number) { |n| n }
     request_number 5678
     customer 'Campus Code'
     address 'Pamplona, 795'
