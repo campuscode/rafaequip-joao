@@ -11,5 +11,6 @@ class Contract < ApplicationRecord
     equipment.each do |eq|
       list << "#{eq.serial_number} / #{eq.name}, "
     end
+    list
   end
 end
