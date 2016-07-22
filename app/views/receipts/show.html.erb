@@ -1,11 +1,18 @@
 <section>
   <div class="panel panel-primary">
     <div class="panel panel-heading">
-      Detalhe do Contrato
+      <h1> Recibo de Entrega </h1>
     </div>
     <div class="panel-body">
       <dl>
-        Eu, <%= @receipt.contract.contact %>
+         <%= "Eu, #{@receipt.contract.contact}, em nome da empresa
+              #{@receipt.contract.customer}, inscrita no CNPJ
+              #{@receipt.contract.cnpj} declaro ter recebido os equipamentos
+              #{@receipt.contract.equipment_list_names} pelo período de
+              #{@receipt.contract.deadline} em perfeitas condições de uso
+              no endereço #{@receipt.contract.address} no dia
+              #{l(@receipt.contract.start_date, format: :short)} de acordo com
+              o contrato #{@receipt.contract.number}" %>
 
       </dl>
 

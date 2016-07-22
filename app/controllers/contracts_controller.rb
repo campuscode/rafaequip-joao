@@ -2,12 +2,14 @@ class ContractsController < ApplicationController
   def new
     @contract = Contract.new
   end
+
   def index
     @contracts = Contract.all
   end
 
   def create
     @contract = Contract.new(params_contract)
+
     if @contract.save
 
       flash[:notice] = 'Contrato criado com sucesso.'

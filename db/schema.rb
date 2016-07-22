@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160722004253) do
+ActiveRecord::Schema.define(version: 20160722182957) do
 
   create_table "contracts", force: :cascade do |t|
     t.integer  "number"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20160722004253) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.integer  "discount"
+    t.string   "cnpj"
   end
 
   create_table "equipment", force: :cascade do |t|

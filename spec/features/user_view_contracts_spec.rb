@@ -9,6 +9,5 @@ feature 'User view Contracts' do
       expect(page).to have_content(contract.customer)
       expect(page).to have_content(contract.request_number)
     end
-
   end
 end

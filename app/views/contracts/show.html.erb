@@ -32,9 +32,15 @@
         <dt>Desconto</dt>
         <dd>  <%= @contract.discount %></dd>
       </dl>
-      <%= link_to 'Emitir Recibo de Entrega',
-                  contract_receipts_path(@contract),
-                  options = {method: :post} %>
+
+      <% unless @contract.receipt %>
+        <%= link_to 'Emitir Recibo de Entrega',
+                    contract_receipts_path(@contract),
+                    options = {method: :post} %>
+      <% else %>
+        <%= link_to 'Imprimir Recibo de Entrega',
+                    @contract.receipt%>
+      <% end %>
     </div>
   </div>
 </section>
