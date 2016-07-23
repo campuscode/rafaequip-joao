@@ -41,6 +41,15 @@
         <%= link_to 'Imprimir Recibo de Entrega',
                     @contract.receipt%>
       <% end %>
+
+      <% unless @contract.received_receipt %>
+        <%= link_to 'Emitir Recibo de Devolução',
+                    contract_receiveds_receipts_path(@contract),
+                    options = {method: :post} %>
+      <% else %>
+        <%= link_to 'Imprimir Recibo de Devolução',
+                    @contract.received_receipt%>
+      <% end %>
     </div>
   </div>
 </section>
