@@ -9,7 +9,7 @@
               #{@receipt.contract.customer}, inscrita no CNPJ
               #{@receipt.contract.cnpj} declaro ter recebido os equipamentos
               #{@receipt.contract.equipment_list_names} pelo período de
-              #{@receipt.contract.deadline} em perfeitas condições de uso
+              #{@receipt.contract.rental_period.period} em perfeitas condições de uso
               no endereço #{@receipt.contract.address} no dia
               #{l(@receipt.contract.start_date, format: :short)} de acordo com
               o contrato #{@receipt.contract.number}" %>

@@ -16,7 +16,7 @@
         <dt>Contato</dt>
         <dd>  <%= @contract.contact %></dd>
         <dt>Prazo</dt>
-        <dd>  <%= @contract.deadline %></dd>
+        <dd>  <%= @contract.rental_period.period %></dd>
         <dt>Equipamentos</dt>
         <dd>
           <% @contract.equipment.each do |equipment| %>

@@ -5,7 +5,7 @@
         <strong>Equipamento</strong>
       </td>
       <td>
-        <strong>Período</strong>
+        <strong>Período (em dia)</strong>
       </td>
       <td>
         <strong>Valor</strong>
@@ -14,7 +14,7 @@
     <% @prices.each do |price| %>
       <tr>
         <td> <%= price.equipment.name %></td>
-        <td> <%= price.rental_period.period %> </td>
+        <td class='periodo'> <%= price.rental_period.period %> </td>
         <td> <%= price.amount %> </td>
       </tr>
     <% end %>

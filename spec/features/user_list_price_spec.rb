@@ -14,8 +14,8 @@ feature 'User list all prices' do
     click_on 'Listar Preços'
 
     expect(page).to have_content(equipment.name, count: 2)
-    expect(page).to have_content(price_1.rental_period.period)
-    expect(page).to have_content(price_2.rental_period.period)
+    expect(page).to have_selector("td class='periodo'")
+    expect(page).to have_content(rental_period2.description)
     expect(page).to have_content price_1.amount
     expect(page).to have_content price_2.amount
   end

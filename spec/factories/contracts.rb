@@ -5,8 +5,7 @@ FactoryGirl.define do
     customer 'Campus Code'
     address 'Pamplona, 795'
     contact 'João de barro'
-    deadline 10
-
+    rental_period
     start_date Date.new
     end_date Date.new
     price 2500

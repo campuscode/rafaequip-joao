@@ -4,7 +4,9 @@ feature 'User create contract' do
   scenario 'successfully' do
     equipment = create(:equipment)
 
-    contract = create(:contract)
+    period = create(:rental_period, period: 15)
+
+    contract = create(:contract, rental_period: period)
 
     visit root_path
 
@@ -15,7 +17,7 @@ feature 'User create contract' do
     fill_in 'Cliente', with: contract.customer
     fill_in 'Endereço', with: contract.address
     fill_in 'Contato', with: contract.contact
-    fill_in 'Prazo', with: contract.deadline
+    select  15, :from => 'Prazo'
     check(equipment.name)
 
     fill_in 'Data de Início', with: contract.start_date
@@ -30,7 +32,7 @@ feature 'User create contract' do
     expect(page).to have_content contract.customer
     expect(page).to have_content contract.address
     expect(page).to have_content contract.contact
-    expect(page).to have_content contract.deadline
+    expect(page).to have_content contract.rental_period.period
     expect(page).to have_content equipment.name
     expect(page).to have_content contract.start_date
     expect(page).to have_content contract.end_date
@@ -41,7 +43,9 @@ feature 'User create contract' do
   scenario 'multiple equipment' do
     equipment = create_list(:equipment, 6)
 
-    contract = create(:contract)
+    period = create(:rental_period, period: 15)
+
+    contract = create(:contract, rental_period: period)
 
     visit root_path
 
@@ -52,7 +56,7 @@ feature 'User create contract' do
     fill_in 'Cliente', with: contract.customer
     fill_in 'Endereço', with: contract.address
     fill_in 'Contato', with: contract.contact
-    fill_in 'Prazo', with: contract.deadline
+    select  15, :from => 'Prazo'
 
     equipment.each do |eq|
       check(eq.name)
@@ -70,7 +74,7 @@ feature 'User create contract' do
     expect(page).to have_content contract.customer
     expect(page).to have_content contract.address
     expect(page).to have_content contract.contact
-    expect(page).to have_content contract.deadline
+    expect(page).to have_content contract.rental_period.period
 
     equipment.each do |eq|
       expect(page).to have_content eq.name
@@ -84,7 +88,9 @@ feature 'User create contract' do
   scenario 'without equipment' do
     equipment = create(:equipment)
 
-    contract = create(:contract)
+    period = create(:rental_period, period: 15)
+
+    contract = create(:contract, rental_period: period)
 
     visit root_path
 
@@ -95,7 +101,7 @@ feature 'User create contract' do
     fill_in 'Cliente', with: contract.customer
     fill_in 'Endereço', with: contract.address
     fill_in 'Contato', with: contract.contact
-    fill_in 'Prazo', with: contract.deadline
+    select  15, :from => 'Prazo'
 
     fill_in 'Data de Início', with: contract.start_date
     fill_in 'Data de Término', with: contract.end_date
@@ -109,7 +115,7 @@ feature 'User create contract' do
     expect(page).to have_content contract.customer
     expect(page).to have_content contract.address
     expect(page).to have_content contract.contact
-    expect(page).to have_content contract.deadline
+    expect(page).to have_content contract.rental_period.period
     expect(page).not_to have_content equipment.name
     expect(page).to have_content contract.start_date
     expect(page).to have_content contract.end_date

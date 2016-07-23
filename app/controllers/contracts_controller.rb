@@ -1,6 +1,8 @@
 class ContractsController < ApplicationController
   def new
     @contract = Contract.new
+
+    @period = RentalPeriod.all
   end
 
   def index
@@ -29,7 +31,7 @@ class ContractsController < ApplicationController
   def params_contract
     params
       .require(:contract).permit(:number, :request_number, :customer, :address,
-                                 :contact, :deadline, :start_date,
+                                 :contact, :rental_period_id, :start_date,
                                  :end_date, :price, :discount,
                                  equipment_ids: [])
   end
