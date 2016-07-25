@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   root 'home#index'
-  resources :proposals, only:[:new, :create, :show, :index]
-  resources :contracts, only:[:new, :create, :show, :index] do
-    resources :receipts, only: [:create]
+  scope '/admin' do
+  	resources :contracts, only:[:new, :create, :show, :index] 
+  	resources :prices, only:[:index]
+  	resources :receipts, only: [:create, :show]
+  	resources :equipment, only:[:new, :create, :show, :index]
+  	resources :proposals, only:[:index, :show]
   end
-  resources :receipts, only: [:show]
-  resources :equipment, only:[:new, :create, :show, :index]
-  resources :prices, only:[:index]
+  	
+  	resources :proposals, only:[:new, :create]
 end
