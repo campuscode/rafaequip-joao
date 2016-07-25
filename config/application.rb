@@ -19,5 +19,6 @@ Bundler.require(*Rails.groups)
 module Rafaequip
   class Application < Rails::Application
     config.i18n.default_locale = :'pt-BR'
+    config.server_static_assets = true
   end
 end
