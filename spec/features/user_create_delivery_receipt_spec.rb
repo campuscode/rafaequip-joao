@@ -25,7 +25,7 @@ feature 'User create Delivery Receipt ' do
   scenario 'and view Print Button' do
     equipment_list = create_list(:equipment, 3)
     contract = create(:contract, equipment: equipment_list)
-    Receipt.create(contract_id: contract.id, delivery_date: Time.now.to_f)
+    Receipt.create(contract_id: contract.id, delivery_date: Time.zone.now)
     visit contract_path(contract)
 
     expect(page).not_to have_link 'Emitir Recibo de Entrega'

@@ -5,8 +5,8 @@ class ReceiptsController < ApplicationController
     if @contract.receipt
       flash.now[:error] = 'Só pode haver um recibo de entrega por contrato'
       render 'show'
-    elsif @receipt.valid?
-      @receipt.save
+    else
+      @receipt = @contract.create_receipt(delivery_date: Time.zone.now)
       flash.now[:notice] = 'Recibo criado com sucesso.'
       redirect_to @receipt
     end
@@ -14,12 +14,12 @@ class ReceiptsController < ApplicationController
 
   def show
     @receipt = Receipt.find(params[:id])
+    render layout: 'receipt'
   end
 
   private
 
   def before_create
-    @receipt = Receipt.new(params.permit(:contract_id))
-    @contract = Contract.find(@receipt.contract.id)
+    @contract = Contract.find(params[:contract_id])
   end
 end

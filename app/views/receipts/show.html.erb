@@ -1,21 +1,29 @@
 <section>
   <div class="panel panel-primary">
     <div class="panel panel-heading">
-      <h1> Recibo de Entrega </h1>
+      <h1 class="text-center"> Recibo de Entrega </h1>
     </div>
     <div class="panel-body">
-      <dl>
-         <%= "Eu, #{@receipt.contract.contact}, em nome da empresa
-              #{@receipt.contract.customer}, inscrita no CNPJ
-              #{@receipt.contract.cnpj} declaro ter recebido os equipamentos
-              #{@receipt.contract.equipment_list_names} pelo período de
-              #{@receipt.contract.rental_period.period} em perfeitas condições de uso
-              no endereço #{@receipt.contract.address} no dia
-              #{l(@receipt.contract.start_date, format: :short)} de acordo com
-              o contrato #{@receipt.contract.number}" %>
+      <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+          <p class="text-center">São Paulo, <%=l(@receipt.delivery_date, format: :long) %> </p>
+          <p>
+             <%= "Eu, #{@receipt.contract.contact}, em nome da empresa
+                  #{@receipt.contract.customer}, inscrita no CNPJ
+                  #{@receipt.contract.cnpj} declaro ter recebido os equipamentos
+                  #{@receipt.contract.equipment_list_names} pelo período de
+                  #{@receipt.contract.rental_period.period} em perfeitas condições de uso
+                  no endereço #{@receipt.contract.address} no dia
+                  #{l(@receipt.contract.start_date, format: :short)} de acordo
+                  com o contrato #{@receipt.contract.number}" %>
 
-      </dl>
+          </p>
 
+
+          <p class="text-left">_____________________________ </p>
+          <p class="text-left">Assinatura do Responsável</p>
+      </div>
+    </div>
     </div>
   </div>
 </section>

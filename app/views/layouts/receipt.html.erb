@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rafaequip</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="well">
+        <h1> <%= link_to 'RafaEquip', root_path %> </h1> <small>Gestão de Contratos e Equipamentos</small>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <%= render 'home/noticies' %>
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
