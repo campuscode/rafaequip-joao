@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :receipts, only: [:show]
   resources :equipment, only:[:new, :create, :show, :index]
   resources :prices, only:[:index]
+  resources :landing, only:[:index, :create]
 end
