@@ -22,6 +22,7 @@ class ContractsController < ApplicationController
 
   def show
     @contract = Contract.find(params[:id])
+    @received_receipt = ReceivedReceipt.new unless @contract.received_receipt
   end
 
   private
