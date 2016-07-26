@@ -21,6 +21,4 @@ feature 'User create Delivery Receipt ' do
     expect(page).to have_content I18n.l(contract.start_date, format: :short)
     expect(page).to have_content contract.number
   end
-
-
 end
