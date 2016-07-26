@@ -1,5 +1,5 @@
 require 'rails_helper'
-include ActionView::Helpers::NumberHelper
+
 
 feature 'User view Equipment' do
   scenario 'succesfully' do
