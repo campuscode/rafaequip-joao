@@ -17,7 +17,7 @@ feature 'User print Delivery Receipt ' do
     expect(page).to have_content contract.customer
     expect(page).to have_content contract.cnpj
     expect(page).to have_content contract.equipment_list_names
-    expect(page).to have_content contract.deadline
+    expect(page).to have_content contract.rental_period.period
     expect(page).to have_content contract.address
     expect(page).to have_content I18n.l(contract.start_date, format: :short)
     expect(page).to have_content contract.number

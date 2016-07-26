@@ -24,13 +24,15 @@
           <% end %>
         </dd>
         <dt>Data de ínicio</dt>
-        <dd>  <%= @contract.start_date %></dd>
+        <dd>  <%= l(@contract.start_date, format: :long) %></dd>
         <dt>Data de fim</dt>
-        <dd>  <%= @contract.end_date %></dd>
+        <dd>  <%= l(@contract.end_date, format: :long) %></dd>
         <dt>Preço</dt>
-        <dd>  <%= @contract.price %></dd>
+        <dd>  <%= l( "currency", @contract.price) %></dd>
         <dt>Desconto</dt>
-        <dd>  <%= @contract.discount %></dd>
+        <dd>  <%= l( "currency", @contract.discount) %></dd>
+        <dt>Preço Final</dt>
+        <dd>  <%= l( "currency", @contract.discount) %></dd>
       </dl>
 
       <% unless @contract.receipt %>
