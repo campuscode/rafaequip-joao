@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 feature 'User view Equipment' do
   scenario 'succesfully' do
     equipment = create_list(:equipment, 5)
