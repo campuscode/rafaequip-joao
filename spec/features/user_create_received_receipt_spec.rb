@@ -20,4 +20,5 @@ feature 'User create Received Receipt' do
     expect(page).to have_content contract.cnpj
     expect(page).to have_content I18n.l(contract.end_date, format: :short)
   end
+
 end

@@ -16,7 +16,7 @@
         <dt>Contato</dt>
         <dd>  <%= @contract.contact %></dd>
         <dt>Prazo</dt>
-        <dd>  <%= @contract.deadline %></dd>        
+        <dd>  <%= @contract.deadline %></dd>
         <dt>Data de ínicio</dt>
         <dd>  <%= l(@contract.start_date) %></dd>
         <dt>Data de fim</dt>
@@ -35,28 +35,44 @@
           <% end %>
         </dd>
       </dl>
-
-      <% unless @contract.receipt %>
-        <%= link_to 'Emitir Recibo de Entrega',
-                    contract_receipts_path(@contract),
-                    options = {method: :post} %>
-      <% else %>
-        <%= link_to 'Imprimir Recibo de Entrega',
-                    @contract.receipt%>
-      <% end %>
-
-      <% unless @contract.received_receipt %>
-        <%= simple_form_for [@contract, @received_receipt] do |f| %>
-
-            <div class="form-group">
-              <%= f.input :responsible, label: 'Responsável' %>
-            </div>
-            <%= f.submit 'Emitir Recibo de Devolução'%>
+    </div>
+  </div>
+  <div class="row">
+      <div class="btn-group" role="group">
+        <% unless @contract.receipt %>
+          <div class="form-group">
+            <%= link_to 'Emitir Recibo de Entrega',
+                        contract_receipts_path(@contract),
+                        options = {method: :post,
+                        class: "btn btn-default"} %>
+          </div>
+        <% else %>
+          <div class="form-group">
+            <%= link_to 'Imprimir Recibo de Entrega',
+                        @contract.receipt,
+                        class: "btn btn-default" %>
+          </div>
         <% end %>
-      <% else %>
-        <%= link_to 'Imprimir Recibo de Devolução',
-                    @contract.received_receipt%>
-      <% end %>
+
+        <% if @contract.receipt && !@contract.received_receipt  %>
+
+          <%= simple_form_for [@contract, @received_receipt],
+                              html: {class: 'form-inline'} do |f| %>
+
+              <%= f.submit 'Emitir Recibo de Devolução',
+                            class: "btn btn-default" %>
+              <div class="form-group">
+                <%= f.input :responsible, label: false,
+                            input_html: {class: 'form-control'} , placeholder: 'Responsável' %>
+              </div>
+
+
+          <% end %>
+        <% elsif @contract.received_receipt %>
+          <%= link_to 'Imprimir Recibo de Devolução',
+                      @contract.received_receipt,
+                      class: "btn btn-default" %>
+        <% end %>
     </div>
   </div>
 </section>
