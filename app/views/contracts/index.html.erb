@@ -1,17 +1,23 @@
 <section>
-  <div class="row">
-    <% @contracts.each do |contract| %>
-      <div class="col-md-6">
-        <div class="panel panel-info">
-          <div class="panel panel-heading">
-            <%=link_to contract.number, contract %>
-          </div>
-          <div class="pane panel-body">
-            <%= contract.customer %>
-            <%= contract.request_number %>
-          </div>
-        </div>
-      </div>
-    <%end%>
-  </div>
+  <table class='table table-striped  table-bordered table-hover'>
+    <caption>Lista de Contratos</caption>
+    <thead>
+      <tr>
+        <th>Número</th>
+        <th>Cliente</th>        
+        <th>Período</th>        
+        <th>Valor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @contracts.each do |contract| %>
+       <tr>
+         <td><%=link_to contract.number, contract %></td>
+         <td><%= contract.customer %></td>
+         <td><%= contract.period_format %></td>
+         <td><%= number_to_currency(contract.price) %></td>
+       </tr>       
+      <% end %>   
+    </tbody>
+  </table>
 </section>

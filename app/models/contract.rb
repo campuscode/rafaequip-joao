@@ -13,4 +13,8 @@ class Contract < ApplicationRecord
     end
     list
   end
+
+  def period_format
+    "#{I18n.l(start_date)} a #{I18n.l(end_date)}"
+  end
 end
