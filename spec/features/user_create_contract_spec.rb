@@ -32,9 +32,9 @@ feature 'User create contract' do
     expect(page).to have_content contract.contact
     expect(page).to have_content contract.deadline
     expect(page).to have_content equipment.name
-    expect(page).to have_content contract.start_date
-    expect(page).to have_content contract.end_date
-    expect(page).to have_content contract.price
+    expect(page).to have_content I18n.l(contract.start_date)
+    expect(page).to have_content I18n.l(contract.end_date)
+    expect(page).to have_content number_to_currency(contract.price)
     expect(page).to have_content contract.discount
   end
 
@@ -76,10 +76,10 @@ feature 'User create contract' do
       expect(page).to have_content eq.name
     end
 
-    expect(page).to have_content contract.start_date
-    expect(page).to have_content contract.end_date
-    expect(page).to have_content contract.price
-    expect(page).to have_content contract.discount
+    expect(page).to have_content I18n.l(contract.start_date)
+    expect(page).to have_content I18n.l(contract.end_date)
+    expect(page).to have_content number_to_currency(contract.price)
+    expect(page).to have_content number_to_currency(contract.discount)
   end
   scenario 'without equipment' do
     equipment = create(:equipment)
@@ -111,10 +111,10 @@ feature 'User create contract' do
     expect(page).to have_content contract.contact
     expect(page).to have_content contract.deadline
     expect(page).not_to have_content equipment.name
-    expect(page).to have_content contract.start_date
-    expect(page).to have_content contract.end_date
-    expect(page).to have_content contract.price
-    expect(page).to have_content contract.discount
+    expect(page).to have_content I18n.l(contract.start_date)
+    expect(page).to have_content I18n.l(contract.end_date)
+    expect(page).to have_content number_to_currency(contract.price)
+    expect(page).to have_content number_to_currency(contract.discount)
   end
 
   scenario 'Fail' do
