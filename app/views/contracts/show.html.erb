@@ -1,5 +1,5 @@
 <section>
-  <div class="panel panel-primary">
+  <div class="panel panel-info">
     <div class="panel panel-heading">
       Detalhe do Contrato
     </div>
@@ -9,28 +9,31 @@
         <dd>  <%= @contract.number %></dd>
         <dt>Número do Pedido</dt>
         <dd>  <%= @contract.request_number %></dd>
-        <dt>Cliete</dt>
+        <dt>Cliente</dt>
         <dd>  <%= @contract.customer %></dd>
         <dt>Endereço</dt>
         <dd>  <%= @contract.address %></dd>
         <dt>Contato</dt>
         <dd>  <%= @contract.contact %></dd>
         <dt>Prazo</dt>
-        <dd>  <%= @contract.deadline %></dd>
+        <dd>  <%= @contract.deadline %></dd>        
+        <dt>Data de ínicio</dt>
+        <dd>  <%= l(@contract.start_date) %></dd>
+        <dt>Data de fim</dt>
+        <dd>  <%= l(@contract.end_date) %></dd>
+        <dt>Preço</dt>
+        <dd>  <%= number_to_currency(@contract.price) %></dd>
+        <dt>Desconto</dt>
+        <dd>  <%= number_to_currency(@contract.discount) %></dd>
+        <dt>Valor Pago</dt>
+        <dd>  <%= number_to_currency(@contract.amount_paid) %></dd>
+
         <dt>Equipamentos</dt>
         <dd>
           <% @contract.equipment.each do |equipment| %>
             <%= equipment.name %>
           <% end %>
         </dd>
-        <dt>Data de ínicio</dt>
-        <dd>  <%= @contract.start_date %></dd>
-        <dt>Data de fim</dt>
-        <dd>  <%= @contract.end_date %></dd>
-        <dt>Preço</dt>
-        <dd>  <%= @contract.price %></dd>
-        <dt>Desconto</dt>
-        <dd>  <%= @contract.discount %></dd>
       </dl>
 
       <% unless @contract.receipt %>

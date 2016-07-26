@@ -13,6 +13,9 @@
         <dd><%= @proposal.phone %></dd>
         <dt>Descrição </dt>
         <dd><%= @proposal.description %></dd>
+        <dt>Data </dt>
+        <dd><%= l @proposal.created_at, format: :short %></dd>
+        
     </dl>
     </div>
   </div>

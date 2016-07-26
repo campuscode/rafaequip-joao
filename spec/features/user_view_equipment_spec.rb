@@ -12,7 +12,7 @@ feature 'User view Equipment' do
       expect(page).to have_content(e.serial_number)
       expect(page).to have_content(e.supplier)
       expect(page).to have_content(e.category)
-      expect(page).to have_content(e.price)
+      expect(page).to have_content(number_to_currency(e.price))
       expect(page).to have_content(e.status)
     end
   end
