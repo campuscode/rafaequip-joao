@@ -1,21 +1,29 @@
 <section>
-  <div class="row">
-    <% @equipment.each do |equipment| %>
-      <div class="col-md-6">
-        <div class="panel panel-info">
-          <div class="panel panel-heading">
-            <%=link_to equipment.name, equipment %>
-          </div>
-          <div class="pane panel-body">
-            <%=equipment.code %>
-            <%=equipment.serial_number %>
-            <%=equipment.supplier %>
-            <%=equipment.category %>
-            <%=equipment.price %>
-            <%=equipment.status %>
-          </div>
-        </div>
-      </div>
-    <%end%>
-  </div>
+  <table class='table table-striped  table-bordered table-hover'>
+    <caption>Lista de Equipamentos</caption>
+    <thead>
+      <tr>
+        <th>Equipamento</th>
+        <th>Código</th>
+        <th>Num. Série</th>
+        <th>Fornecedor</th>
+        <th>Categoria</th>
+        <th>Preço (R$)</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @equipment.each do |equipment| %>
+        <tr>
+          <td><%=link_to equipment.name, equipment %></td>
+          <td><%=equipment.code %></td>
+          <td><%=equipment.serial_number %></td>
+          <td><%=equipment.supplier %></td>
+          <td><%=equipment.category %></td>
+          <td><%= number_to_currency(equipment.price) %></td>
+          <td><%=equipment.status %></td>         
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
 </section>
