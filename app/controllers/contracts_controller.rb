@@ -11,7 +11,6 @@ class ContractsController < ApplicationController
 
   def create
     @contract = Contract.new(params_contract)
-    @contract.status = true
     if @contract.save
       flash[:notice] = 'Contrato criado com sucesso.'
       redirect_to @contract
@@ -29,7 +28,7 @@ class ContractsController < ApplicationController
 
   def finish
     @contract = Contract.find(params[:id])
-    @contract.update(status: false)
+    @contract.closed!
 
     redirect_to @contract
   end

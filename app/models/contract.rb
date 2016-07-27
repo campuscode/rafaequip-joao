@@ -9,6 +9,8 @@ class Contract < ApplicationRecord
 
   before_save :set_price
 
+  enum status: [:open, :closed]
+
   def equipment_list_names
     list = ''
 
@@ -26,8 +28,9 @@ class Contract < ApplicationRecord
     price - discount
   end
 
-  def status?
-    status ? 'Aberto' : 'Fechado'
+  def contract_status
+    return 'Fechado' if closed?
+    'Aberto'
   end
 
   private

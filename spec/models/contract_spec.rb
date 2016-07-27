@@ -11,4 +11,21 @@ RSpec.describe Contract, type: :model do
       expect(contract.price).to eq 3000.0
     end
   end
+
+  describe '#contract_status' do
+    context 'open' do
+      it 'prints Aberto' do
+        contract = Contract.new
+        expect(contract.contract_status).to eq 'Aberto'
+      end
+    end
+
+    context 'closed' do
+      it 'prints Fechado' do
+        contract = build :contract
+        contract.closed!
+        expect(contract.contract_status).to eq 'Fechado'
+      end
+    end
+  end
 end

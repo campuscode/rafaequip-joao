@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160726230631) do
+ActiveRecord::Schema.define(version: 20160727211233) do
 
   create_table "contracts", force: :cascade do |t|
     t.integer  "number"
@@ -21,12 +21,12 @@ ActiveRecord::Schema.define(version: 20160726230631) do
     t.date     "start_date"
     t.date     "end_date"
     t.float    "price"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.integer  "discount"
     t.string   "cnpj"
     t.integer  "rental_period_id"
-    t.boolean  "status"
+    t.integer  "status",           default: 0
     t.index ["rental_period_id"], name: "index_contracts_on_rental_period_id"
   end
 

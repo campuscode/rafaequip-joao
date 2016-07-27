@@ -10,6 +10,6 @@ FactoryGirl.define do
     end_date Time.zone.today
     price 2500
     discount 5
-    status true
+    status 'open'
   end
 end
