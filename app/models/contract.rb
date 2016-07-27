@@ -26,6 +26,10 @@ class Contract < ApplicationRecord
     price - discount
   end
 
+  def status?
+    status ? 'Aberto' : 'Fechado'
+  end
+
   private
 
   def set_price

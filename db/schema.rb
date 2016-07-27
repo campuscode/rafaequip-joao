@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160725195556) do
+ActiveRecord::Schema.define(version: 20160726230631) do
 
   create_table "contracts", force: :cascade do |t|
     t.integer  "number"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20160725195556) do
     t.integer  "discount"
     t.string   "cnpj"
     t.integer  "rental_period_id"
+    t.boolean  "status"
     t.index ["rental_period_id"], name: "index_contracts_on_rental_period_id"
   end
 

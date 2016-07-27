@@ -6,9 +6,10 @@ FactoryGirl.define do
     address 'Pamplona, 795'
     contact 'João de barro'
     rental_period
-    start_date Date.new
-    end_date Date.new
+    start_date Time.zone.today
+    end_date Time.zone.today
     price 2500
     discount 5
+    status true
   end
 end

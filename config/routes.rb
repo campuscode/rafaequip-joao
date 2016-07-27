@@ -11,5 +11,10 @@ Rails.application.routes.draw do
   resources :equipment, only:[:new, :create, :show, :index]
   resources :prices, only:[:index]
   resources :landing, only:[:index, :create]
+  resources :contracts do
+    member do
+      post 'finish'
+    end
+  end
 
 end
