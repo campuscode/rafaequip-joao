@@ -1,17 +1,19 @@
 <section>
-  <div class="row">
-    <% @proposals.each do |proposal| %>
-      <div class="col-md-6">
-        <div class="panel panel-info">
-          <div class="panel panel-heading">
-            <%=link_to proposal.name, proposal %>
-          </div>
-          <div class="pane panel-body">
-            <%=proposal.email %>
-            <%=l proposal.created_at, format: :short%>
-          </div>
-        </div>
-      </div>
-    <%end%>
+  <div class="panel panel-default">
+    <div class="panel-heading">Orçamentos</div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <th> Nome </th>
+        <th> Email </th>
+        <th> Data </th>
+        <% @proposals.each do |proposal| %>
+          <tr>
+            <td> <%= link_to proposal.name, proposal %> </td>
+            <td> <%= proposal.email %> </td>
+            <td> <%= l proposal.created_at, format: :short %> </td>
+          </tr>
+        <%end%>
+      </table>
+    </div>
   </div>
 </section>

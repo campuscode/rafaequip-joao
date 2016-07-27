@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :price do
-    amount 1.5
+    amount 1500.0
     equipment
     rental_period
   end

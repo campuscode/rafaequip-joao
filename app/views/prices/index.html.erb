@@ -1,22 +1,21 @@
 <section>
-  <table class='table table-striped'>
-    <tr>
-      <td>
-        <strong>Equipamento</strong>
-      </td>
-      <td>
-        <strong>Período (em dia)</strong>
-      </td>
-      <td>
-        <strong>Valor</strong>
-      </td>
-    </tr>
-    <% @prices.each do |price| %>
+  <table class='table table-striped  table-bordered table-hover'>
+    <caption>Lista de Preços</caption>
+    <thead>
       <tr>
-        <td> <%= price.equipment.name %></td>
-        <td class='periodo'> <%= price.rental_period.period %> </td>
-        <td> <%= price.amount %> </td>
+        <th>Equipamento</td>
+        <th>Período</th>
+        <th>Valor</th>
       </tr>
-    <% end %>
+    </thead>
+    <tbody>
+      <% @prices.each do |price| %>
+        <tr>
+          <td> <%= price.equipment.name %></td>
+          <td> <%= price.rental_period.period %> </td>
+          <td> <%= price.amount %> </td>
+        </tr>
+      <% end %>
+    </tbody>
   </table>
 </section>

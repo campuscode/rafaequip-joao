@@ -1,5 +1,5 @@
 <section>
-  <div class="panel panel-primary">
+  <div class="panel panel-info">
     <div class="panel panel-heading">
       Detalhe do Contrato
     </div>
@@ -9,7 +9,7 @@
         <dd>  <%= @contract.number %></dd>
         <dt>Número do Pedido</dt>
         <dd>  <%= @contract.request_number %></dd>
-        <dt>Cliete</dt>
+        <dt>Cliente</dt>
         <dd>  <%= @contract.customer %></dd>
         <dt>Endereço</dt>
         <dd>  <%= @contract.address %></dd>
@@ -17,6 +17,17 @@
         <dd>  <%= @contract.contact %></dd>
         <dt>Prazo</dt>
         <dd>  <%= @contract.rental_period.period %></dd>
+
+        <dt>Data de ínicio</dt>
+        <dd>  <%= l(@contract.start_date) %></dd>
+        <dt>Data de fim</dt>
+        <dd>  <%= l(@contract.end_date) %></dd>
+        <dt>Preço</dt>
+        <dd>  <%= number_to_currency(@contract.price) %></dd>
+        <dt>Desconto</dt>
+        <dd>  <%= number_to_currency(@contract.discount) %></dd>
+        <dt>Valor Pago</dt>
+        <dd>  <%= number_to_currency(@contract.amount_paid) %></dd>
         <dt>Equipamentos</dt>
         <dd>
           <% @contract.equipment.each do |equipment| %>
@@ -42,6 +53,19 @@
       <% else %>
         <%= link_to 'Imprimir Recibo de Entrega',
                     @contract.receipt%>
+      <% end %>
+
+      <% unless @contract.received_receipt %>
+        <%= simple_form_for [@contract, @received_receipt] do |f| %>
+
+            <div class="form-group">
+              <%= f.input :responsible, label: 'Responsável' %>
+            </div>
+            <%= f.submit 'Emitir Recibo de Devolução'%>
+        <% end %>
+      <% else %>
+        <%= link_to 'Imprimir Recibo de Devolução',
+                    @contract.received_receipt%>
       <% end %>
     </div>
   </div>

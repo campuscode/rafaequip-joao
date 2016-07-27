@@ -13,9 +13,9 @@ class ContractsController < ApplicationController
     @contract = Contract.new(params_contract)
 
     if @contract.save
-
       flash[:notice] = 'Contrato criado com sucesso.'
       redirect_to @contract
+
     else
       flash.now[:error] = 'Erro ao cadastrar contrato.'
       render 'new'
@@ -24,6 +24,7 @@ class ContractsController < ApplicationController
 
   def show
     @contract = Contract.find(params[:id])
+    @received_receipt = ReceivedReceipt.new unless @contract.received_receipt
   end
 
   private

@@ -7,7 +7,6 @@ feature 'User view Contracts' do
     contracts.each do |contract|
       expect(page).to have_link(contract.number)
       expect(page).to have_content(contract.customer)
-      expect(page).to have_content(contract.request_number)
     end
   end
 end

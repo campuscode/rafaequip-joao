@@ -17,7 +17,7 @@ feature 'User create contract' do
     fill_in 'Cliente', with: contract.customer
     fill_in 'Endereço', with: contract.address
     fill_in 'Contato', with: contract.contact
-    select  15, :from => 'Prazo'
+    select  15, from: 'Prazo'
     check(equipment.name)
 
     fill_in 'Data de Início', with: contract.start_date
@@ -56,7 +56,7 @@ feature 'User create contract' do
     fill_in 'Cliente', with: contract.customer
     fill_in 'Endereço', with: contract.address
     fill_in 'Contato', with: contract.contact
-    select  15, :from => 'Prazo'
+    select  15, from: 'Prazo'
 
     equipment.each do |eq|
       check(eq.name)
@@ -82,8 +82,8 @@ feature 'User create contract' do
 
     expect(page).to have_content I18n.l(contract.start_date)
     expect(page).to have_content I18n.l(contract.end_date)
-    expect(page).to have_content contract.price
-    expect(page).to have_content contract.discount
+    expect(page).to have_content number_to_currency(contract.price)
+    expect(page).to have_content number_to_currency(contract.discount)
   end
   scenario 'without equipment' do
     equipment = create(:equipment)
@@ -101,7 +101,7 @@ feature 'User create contract' do
     fill_in 'Cliente', with: contract.customer
     fill_in 'Endereço', with: contract.address
     fill_in 'Contato', with: contract.contact
-    select  15, :from => 'Prazo'
+    select  15, from: 'Prazo'
 
     fill_in 'Data de Início', with: contract.start_date
     fill_in 'Data de Término', with: contract.end_date

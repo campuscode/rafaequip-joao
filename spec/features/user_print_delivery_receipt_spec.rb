@@ -32,8 +32,4 @@ feature 'User print Delivery Receipt ' do
     expect(page).not_to have_link 'Emitir Recibo de Entrega'
     expect(page).to have_link 'Imprimir Recibo de Entrega'
   end
-
-  #   scenario 'in Edit Mode' do
-
-  #   end
 end

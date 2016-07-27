@@ -18,7 +18,7 @@ feature 'User list all prices' do
     expect(page).to have_content(rental_period2.period)
     expect(page).to have_content price_1.amount
     expect(page).to have_content price_2.amount
-    expect(page).not_to have_content ('Não há preços cadastrados.')
+    expect(page).not_to have_content 'Não há preços cadastrados.'
   end
 
   scenario 'successfully Two equipment, one rental period' do
@@ -38,8 +38,7 @@ feature 'User list all prices' do
     expect(page).to have_content(rental_period.period, count: 2)
     expect(page).to have_content(price_1.amount)
     expect(page).to have_content(price_2.amount)
-    expect(page).not_to have_content ('Não há preços cadastrados.')
-
+    expect(page).not_to have_content 'Não há preços cadastrados.'
   end
 
   scenario 'without prices' do
