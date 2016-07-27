@@ -27,6 +27,7 @@ feature 'User create contract' do
 
     click_on 'Cadastrar Contrato'
 
+    expect(page).to have_content 'Aberto'
     expect(page).to have_content contract.number
     expect(page).to have_content contract.request_number
     expect(page).to have_content contract.customer
@@ -75,6 +76,7 @@ feature 'User create contract' do
     expect(page).to have_content contract.address
     expect(page).to have_content contract.contact
     expect(page).to have_content contract.rental_period.period
+    expect(page).to have_content 'Aberto'
 
     equipment.each do |eq|
       expect(page).to have_content eq.name
@@ -121,6 +123,7 @@ feature 'User create contract' do
     expect(page).to have_content I18n.l(contract.end_date)
     expect(page).to have_content number_to_currency(contract.price)
     expect(page).to have_content number_to_currency(contract.discount)
+    expect(page).to have_content 'Aberto'
   end
 
   scenario 'Fail' do

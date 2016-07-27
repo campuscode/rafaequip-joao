@@ -4,9 +4,10 @@
     <thead>
       <tr>
         <th>Número</th>
-        <th>Cliente</th>        
-        <th>Período</th>        
+        <th>Cliente</th>
+        <th>Período</th>
         <th>Valor</th>
+        <th>Status</th>
       </tr>
     </thead>
     <tbody>
@@ -16,8 +17,9 @@
          <td><%= contract.customer %></td>
          <td><%= contract.period_format %></td>
          <td><%= number_to_currency(contract.price) %></td>
-       </tr>       
-      <% end %>   
+         <td><%= contract.status? %></td>
+       </tr>
+      <% end %>
     </tbody>
   </table>
 </section>
