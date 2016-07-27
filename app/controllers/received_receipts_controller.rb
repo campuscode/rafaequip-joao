@@ -2,8 +2,7 @@ class ReceivedReceiptsController < ApplicationController
   before_action :valid_data, only: [:create]
 
   def create
-
-      @received_receipt = @contract.build_received_receipt(params_received)
+    @received_receipt = @contract.build_received_receipt(params_received)
     if @received_receipt.save
       flash[:notice] = 'Recibo criado com sucesso.'
       redirect_to @received_receipt
