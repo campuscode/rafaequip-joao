@@ -5,6 +5,8 @@
     </div>
     <div class="panel-body">
       <dl>
+        <dt>Status</dt>
+        <dd>  <%= @contract.status? %></dd>
         <dt>Número</dt>
         <dd>  <%= @contract.number %></dd>
         <dt>Número do Pedido</dt>
@@ -27,7 +29,6 @@
         <dd>  <%= number_to_currency(@contract.discount) %></dd>
         <dt>Valor Pago</dt>
         <dd>  <%= number_to_currency(@contract.amount_paid) %></dd>
-
         <dt>Equipamentos</dt>
         <dd>
           <% @contract.equipment.each do |equipment| %>
@@ -72,6 +73,11 @@
           <%= link_to 'Imprimir Recibo de Devolução',
                       @contract.received_receipt,
                       class: "btn btn-default" %>
+
+          <%= link_to 'Encerrar Contrato',
+                      finish_contract_path(@contract),
+                      options = {method: :post,
+                                 class: "btn btn-default"} %>
         <% end %>
     </div>
   </div>

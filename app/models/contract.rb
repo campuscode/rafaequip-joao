@@ -22,4 +22,8 @@ class Contract < ApplicationRecord
   def amount_paid
     price - discount
   end
+
+  def status?
+    status ? 'Aberto' : 'Fechado'
+  end
 end

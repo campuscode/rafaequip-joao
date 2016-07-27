@@ -32,7 +32,5 @@ feature 'User create Received Receipt' do
     click_on 'Emitir Recibo de Devolução'
 
     expect(page).to have_content 'Erro, falta o nome do responsável'
-
   end
-
 end
