@@ -8,7 +8,6 @@ FactoryGirl.define do
     rental_period
     start_date Time.zone.today
     end_date Time.zone.today
-    price 2500
     discount 5
     status 'open'
   end

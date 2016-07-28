@@ -23,12 +23,6 @@
         <dd>  <%= l(@contract.start_date) %></dd>
         <dt>Data de fim</dt>
         <dd>  <%= l(@contract.end_date) %></dd>
-        <dt>Preço</dt>
-        <dd>  <%= number_to_currency(@contract.price) %></dd>
-        <dt>Desconto</dt>
-        <dd>  <%= number_to_currency(@contract.discount) %></dd>
-        <dt>Valor Pago</dt>
-        <dd>  <%= number_to_currency(@contract.amount_paid) %></dd>
         <dt>Equipamentos</dt>
         <dd>
           <% @contract.equipment.each do |equipment| %>
@@ -40,7 +34,7 @@
         <dt>Data de fim</dt>
         <dd>  <%= l(@contract.end_date) %></dd>
         <dt>Preço</dt>
-        <dd>  <%= number_to_currency(@contract.price) %></dd>
+          <dd>  <%= number_to_currency( @contract.price) %></dd>
         <dt>Desconto</dt>
         <dd>  <%= number_to_currency( @contract.discount) %></dd>
         <dt>Preço Final</dt>
