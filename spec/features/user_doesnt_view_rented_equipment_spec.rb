@@ -13,9 +13,8 @@ feature 'User does not view Equipment' do
 
   scenario 'contract rented equipment' do
     equipment = create_list(:equipment, 2)
-    period = create(:rental_period, period: 15)
-    contract = create(:contract, rental_period: period,
-                        equipment: [equipment.last])
+    create(:rental_period, period: 15)
+    create(:contract, equipment: [equipment.last])
 
     visit new_contract_path
 

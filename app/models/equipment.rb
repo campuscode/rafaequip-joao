@@ -14,5 +14,4 @@ class Equipment < ApplicationRecord
     return 'Alugado' if rented?
     'Disponível'
   end
-
 end

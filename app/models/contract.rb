@@ -8,6 +8,7 @@ class Contract < ApplicationRecord
   has_one :received_receipt
 
   before_save :set_price
+  after_create :set_equipment_rented
 
   enum status: [:open, :closed]
 
@@ -39,5 +40,9 @@ class Contract < ApplicationRecord
     self.price = equipment.reduce(0) do |a, e|
       a + e.price_for(rental_period)
     end
+  end
+
+  def set_equipment_rented
+    equipment.each(&:rented!)
   end
 end
