@@ -28,7 +28,7 @@ class ContractsController < ApplicationController
 
   def finish
     @contract = Contract.find(params[:id])
-    @contract.closed!
+    @contract.close
 
     redirect_to @contract
   end

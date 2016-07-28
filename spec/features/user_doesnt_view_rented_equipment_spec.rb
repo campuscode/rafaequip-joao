@@ -26,8 +26,12 @@ feature 'User does not view Equipment' do
     equipment = create_list(:equipment, 2)
     create(:rental_period, period: 15)
     contract = create(:contract, equipment: [equipment.last])
+    create(:receipt, contract: contract)
+    create(:received_receipt, contract: contract)
 
-    contract.closed!
+    visit contract_path(contract)
+
+    click_on 'Encerrar Contrato'
 
     visit new_contract_path
 

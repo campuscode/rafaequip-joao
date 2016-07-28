@@ -12,7 +12,6 @@ class Contract < ApplicationRecord
 
   before_save :set_price
   after_create :set_equipment_rented
-  after_update :set_equipment_available
 
   enum status: [:open, :closed]
 
@@ -36,6 +35,11 @@ class Contract < ApplicationRecord
   def contract_status
     return 'Fechado' if closed?
     'Aberto'
+  end
+
+  def close
+    self.closed!
+    set_equipment_available
   end
 
   private
