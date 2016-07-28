@@ -6,6 +6,6 @@ FactoryGirl.define do
     supplier 'Fornecedor'
     category 'Furadeira'
     price 1.5
-    status 'Disponível'
+    status 'available'
   end
 end

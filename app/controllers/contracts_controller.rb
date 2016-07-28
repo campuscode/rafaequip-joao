@@ -1,6 +1,7 @@
 class ContractsController < ApplicationController
   def new
     @contract = Contract.new
+    @equipment = Equipment.available
 
     @period = RentalPeriod.all
   end
