@@ -38,7 +38,7 @@ class Contract < ApplicationRecord
   end
 
   def close
-    self.closed!
+    closed!
     set_equipment_available
   end
 
