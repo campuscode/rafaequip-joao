@@ -3,10 +3,9 @@ require 'rails_helper'
 feature 'User create contract' do
   scenario 'successfully' do
     equipment = create(:equipment)
-
     period = create(:rental_period, period: 15)
-
-    contract = create(:contract, rental_period: period)
+    price = create(:price, rental_period: period, equipment: equipment)
+    contract = build(:contract, rental_period: period)
 
     visit root_path
 
@@ -22,7 +21,6 @@ feature 'User create contract' do
 
     fill_in 'Data de Início', with: contract.start_date
     fill_in 'Data de Término', with: contract.end_date
-    fill_in 'Preço', with: contract.price
     fill_in 'Desconto', with: contract.discount
 
     click_on 'Cadastrar Contrato'
@@ -45,8 +43,11 @@ feature 'User create contract' do
     equipment = create_list(:equipment, 6)
 
     period = create(:rental_period, period: 15)
+    equipment.each do |e|
+      price = create(:price, rental_period: period, equipment: e)
+    end
 
-    contract = create(:contract, rental_period: period)
+    contract = build(:contract, rental_period: period)
 
     visit root_path
 
@@ -65,7 +66,6 @@ feature 'User create contract' do
 
     fill_in 'Data de Início', with: contract.start_date
     fill_in 'Data de Término', with: contract.end_date
-    fill_in 'Preço', with: contract.price
     fill_in 'Desconto', with: contract.discount
 
     click_on 'Cadastrar Contrato'
@@ -92,7 +92,7 @@ feature 'User create contract' do
 
     period = create(:rental_period, period: 15)
 
-    contract = create(:contract, rental_period: period)
+    contract = build(:contract, rental_period: period)
 
     visit root_path
 
@@ -107,26 +107,14 @@ feature 'User create contract' do
 
     fill_in 'Data de Início', with: contract.start_date
     fill_in 'Data de Término', with: contract.end_date
-    fill_in 'Preço', with: contract.price
     fill_in 'Desconto', with: contract.discount
 
     click_on 'Cadastrar Contrato'
 
-    expect(page).to have_content contract.number
-    expect(page).to have_content contract.request_number
-    expect(page).to have_content contract.customer
-    expect(page).to have_content contract.address
-    expect(page).to have_content contract.contact
-    expect(page).to have_content contract.rental_period.period
-    expect(page).not_to have_content equipment.name
-    expect(page).to have_content I18n.l(contract.start_date)
-    expect(page).to have_content I18n.l(contract.end_date)
-    expect(page).to have_content number_to_currency(contract.price)
-    expect(page).to have_content number_to_currency(contract.discount)
-    expect(page).to have_content 'Aberto'
+    expect(page).to have_content 'Erro ao cadastrar contrato.'
   end
 
-  scenario 'Fail' do
+  scenario 'contract valid' do
     visit root_path
 
     click_on 'Novo Contrato'

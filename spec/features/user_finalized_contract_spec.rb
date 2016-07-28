@@ -2,7 +2,12 @@ require 'rails_helper'
 
 feature 'User finalized contract' do
   scenario 'successfully' do
-    contract = create(:contract)
+    equipment = create(:equipment)
+    period = create(:rental_period, period: 15)
+    price = create(:price, rental_period: period, equipment: equipment)
+    contract = create(:contract, rental_period: period)
+    create(:rented_equipment, contract: contract, equipment: equipment)
+
     contract.create_receipt
     contract.create_received_receipt(responsible: 'Alan')
 
