@@ -1,14 +1,14 @@
 class ReceivedReceiptsController < ApplicationController
-  before_action :before_create, only: [:create]
+  before_action :valid_data, only: [:create]
 
   def create
-    if @contract.received_receipt
-      flash.now[:error] = 'Só pode haver um recibo de entrega por contrato'
-      render 'show'
-    else
-      @received_receipt = @contract.create_received_receipt(params_received)
-      flash.now[:notice] = 'Recibo criado com sucesso.'
+    @received_receipt = @contract.build_received_receipt(params_received)
+    if @received_receipt.save
+      flash[:notice] = 'Recibo criado com sucesso.'
       redirect_to @received_receipt
+    else
+      flash[:error] = 'Erro, falta o nome do responsável'
+      redirect_to @contract
     end
   end
 
@@ -18,8 +18,12 @@ class ReceivedReceiptsController < ApplicationController
 
   private
 
-  def before_create
+  def valid_data
     @contract = Contract.find(params[:contract_id])
+    if @contract.received_receipt
+      flash.now[:error] = 'Só pode haver um recibo de devolução por contrato'
+      render 'show'
+    end
   end
 
   def params_received

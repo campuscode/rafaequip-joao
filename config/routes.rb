@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   resources :contracts, only:[:new, :create, :show, :index] do
     resources :receipts, only: [:create]
     resources :received_receipts, only: [:create]
+    member do
+      post 'finish'
+    end
   end	
 	resources :receipts, only: [:show]
   resources :received_receipts, only: [:show]
