@@ -9,6 +9,7 @@ class Contract < ApplicationRecord
 
   before_save :set_price
   after_create :set_equipment_rented
+  after_update :set_equipment_available
 
   enum status: [:open, :closed]
 
@@ -44,5 +45,9 @@ class Contract < ApplicationRecord
 
   def set_equipment_rented
     equipment.each(&:rented!)
+  end
+
+  def set_equipment_available
+    equipment.each(&:available!)
   end
 end
