@@ -9,7 +9,6 @@ FactoryGirl.define do
     start_date Time.zone.today
     end_date Time.zone.today
     discount 5
-    status true
-    # rented_equipment
+    status 'open'
   end
 end
