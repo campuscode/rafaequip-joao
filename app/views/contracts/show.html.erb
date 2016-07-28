@@ -41,6 +41,19 @@
         <%= link_to 'Imprimir Recibo de Entrega',
                     @contract.receipt%>
       <% end %>
+
+      <% unless @contract.received_receipt %>
+        <%= simple_form_for [@contract, @received_receipt] do |f| %>
+
+            <div class="form-group">
+              <%= f.input :responsible, label: 'Responsável' %>
+            </div>
+            <%= f.submit 'Emitir Recibo de Devolução'%>
+        <% end %>
+      <% else %>
+        <%= link_to 'Imprimir Recibo de Devolução',
+                    @contract.received_receipt%>
+      <% end %>
     </div>
   </div>
 </section>

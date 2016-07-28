@@ -4,6 +4,7 @@ class Contract < ApplicationRecord
   has_many :rented_equipment
   has_many :equipment, through: :rented_equipment
   has_one :receipt
+  has_one :received_receipt
 
   def equipment_list_names
     list = ''

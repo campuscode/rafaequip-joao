@@ -1,0 +1,28 @@
+<section>
+  <div class="panel panel-primary">
+    <div class="panel panel-heading">
+      <h1 class="text-center"> Recibo de Entrega </h1>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-offset-3 col-md-6">
+          <p class="text-center">São Paulo,
+            <%=l(@received_receipt.created_at, format: :long) %>
+          </p>
+          <p class="text-justify">
+             <%= "Eu, #{@received_receipt.responsible}, declaro ter recebido os
+                  #{@received_receipt.contract.equipment_list_names} em devolução
+                  referente ao contrato #{@received_receipt.contract.number}
+                  em prefeitas contições da empresa
+                  #{@received_receipt.contract.customer}, inscrita no CNPJ
+                  #{@received_receipt.contract.cnpj} no dia
+                  #{l(@received_receipt.contract.end_date, format: :short)}." %>
+          </p>
+          <p class="text-left">_____________________________ </p>
+          <p class="text-left">Assinatura do Responsável</p>
+      </div>
+    </div>
+
+    </div>
+  </div>
+</section>
