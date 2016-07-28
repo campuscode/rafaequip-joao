@@ -3,8 +3,8 @@ require 'rails_helper'
 feature 'User view contract price' do
   scenario 'succesfully' do
     equipment = create(:equipment)
-    contract = build(:contract, discount: 5)
     rental_period = create(:rental_period, period: 15)
+    contract = build(:contract, discount: 5, rental_period: rental_period)
     create(:price, rental_period: rental_period, equipment: equipment,
                    amount: 1500)
     today = Time.zone.today
