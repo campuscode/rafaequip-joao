@@ -6,7 +6,7 @@
     <div class="panel-body">
       <dl>
         <dt>Status</dt>
-        <dd>  <%= @contract.status? %></dd>
+        <dd>  <%= @contract.contract_status %></dd>
         <dt>Número</dt>
         <dd>  <%= @contract.number %></dd>
         <dt>Número do Pedido</dt>
@@ -18,7 +18,7 @@
         <dt>Contato</dt>
         <dd>  <%= @contract.contact %></dd>
         <dt>Prazo</dt>
-        <dd>  <%= @contract.deadline %></dd>
+        <dd> <%= @contract.rental_period.period %></dd>
         <dt>Data de ínicio</dt>
         <dd>  <%= l(@contract.start_date) %></dd>
         <dt>Data de fim</dt>
@@ -35,6 +35,16 @@
             <%= equipment.name %>
           <% end %>
         </dd>
+        <dt>Data de ínicio</dt>
+        <dd>  <%= l(@contract.start_date) %></dd>
+        <dt>Data de fim</dt>
+        <dd>  <%= l(@contract.end_date) %></dd>
+        <dt>Preço</dt>
+        <dd>  <%= number_to_currency(@contract.price) %></dd>
+        <dt>Desconto</dt>
+        <dd>  <%= number_to_currency( @contract.discount) %></dd>
+        <dt>Preço Final</dt>
+        <dd>  <%= number_to_currency(@contract.discount) %></dd>
       </dl>
     </div>
   </div>

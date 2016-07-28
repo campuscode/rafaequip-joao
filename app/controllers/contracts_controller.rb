@@ -1,6 +1,9 @@
 class ContractsController < ApplicationController
   def new
     @contract = Contract.new
+    @equipment = Equipment.available
+
+    @period = RentalPeriod.all
   end
 
   def index
@@ -9,11 +12,10 @@ class ContractsController < ApplicationController
 
   def create
     @contract = Contract.new(params_contract)
-    @contract.status = true
     if @contract.save
-
       flash[:notice] = 'Contrato criado com sucesso.'
       redirect_to @contract
+
     else
       flash.now[:error] = 'Erro ao cadastrar contrato.'
       render 'new'
@@ -27,7 +29,7 @@ class ContractsController < ApplicationController
 
   def finish
     @contract = Contract.find(params[:id])
-    @contract.update(status: false)
+    @contract.closed!
 
     redirect_to @contract
   end
@@ -37,7 +39,7 @@ class ContractsController < ApplicationController
   def params_contract
     params
       .require(:contract).permit(:number, :request_number, :customer, :address,
-                                 :contact, :deadline, :start_date,
+                                 :contact, :rental_period_id, :start_date,
                                  :end_date, :price, :discount,
                                  equipment_ids: [])
   end

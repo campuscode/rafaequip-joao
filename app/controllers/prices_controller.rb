@@ -1,7 +1,6 @@
 class PricesController < ApplicationController
   def index
     @prices = Price.all
-
-    flash.now[:error] = 'Não há preços cadastrados.' if @prices.empty?
+    flash.now[:notice] = 'Não há preços cadastrados.' if @prices.empty?
   end
 end

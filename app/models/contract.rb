@@ -1,10 +1,15 @@
 class Contract < ApplicationRecord
-  validates :number, :request_number, :customer, :address, :contact, :deadline,
-            :start_date, :end_date, :price, presence: true
+  validates :number, :request_number, :customer, :address, :contact,
+            :rental_period, :start_date, :end_date, presence: true
   has_many :rented_equipment
   has_many :equipment, through: :rented_equipment
   has_one :receipt
+  belongs_to :rental_period
   has_one :received_receipt
+
+  before_save :set_price
+
+  enum status: [:open, :closed]
 
   def equipment_list_names
     list = ''
@@ -23,7 +28,16 @@ class Contract < ApplicationRecord
     price - discount
   end
 
-  def status?
-    status ? 'Aberto' : 'Fechado'
+  def contract_status
+    return 'Fechado' if closed?
+    'Aberto'
+  end
+
+  private
+
+  def set_price
+    self.price = equipment.reduce(0) do |a, e|
+      a + e.price_for(rental_period)
+    end
   end
 end

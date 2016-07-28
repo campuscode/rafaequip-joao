@@ -17,10 +17,10 @@
       <%= f.input :contact, label:'Contato' %>
     </div>
     <div class="form-group">
-      <%= f.input :deadline, label:'Prazo' %>
+      <%= f.association :rental_period, label: 'Prazo', label_method: :period, as: :select %>
     </div>
     <div class="form-group">
-      <%= f.association :equipment, as: :check_boxes %>
+      <%= f.association :equipment, collection: @equipment ,as: :check_boxes %>
     </div>
     <div class="form-group">
       <%= f.input :start_date, label:'Data de Início', as: :string  %>

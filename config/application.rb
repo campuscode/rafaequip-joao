@@ -19,6 +19,7 @@ Bundler.require(*Rails.groups)
 module Rafaequip
   class Application < Rails::Application
     config.i18n.default_locale = :'pt-BR'
+    #config.active_record.default_timezone = 'Brasilia'
     config.server_static_assets = false
   end
 end

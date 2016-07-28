@@ -16,6 +16,6 @@ feature 'User finalized contract' do
     expect(page).to have_content contract.customer
     expect(page).to have_content contract.address
     expect(page).to have_content contract.contact
-    expect(page).to have_content contract.deadline
+    expect(page).to have_content contract.rental_period.period
   end
 end
