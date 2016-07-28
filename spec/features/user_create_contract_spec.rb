@@ -4,7 +4,7 @@ feature 'User create contract' do
   scenario 'successfully' do
     equipment = create(:equipment)
     period = create(:rental_period, period: 15)
-    price = create(:price, rental_period: period, equipment: equipment)
+    create(:price, rental_period: period, equipment: equipment)
     contract = build(:contract, rental_period: period)
 
     visit root_path
@@ -44,7 +44,7 @@ feature 'User create contract' do
 
     period = create(:rental_period, period: 15)
     equipment.each do |e|
-      price = create(:price, rental_period: period, equipment: e)
+      create(:price, rental_period: period, equipment: e)
     end
 
     contract = build(:contract, rental_period: period)
@@ -88,7 +88,7 @@ feature 'User create contract' do
     expect(page).to have_content number_to_currency(contract.discount)
   end
   scenario 'without equipment' do
-    equipment = create(:equipment)
+    create(:equipment)
 
     period = create(:rental_period, period: 15)
 

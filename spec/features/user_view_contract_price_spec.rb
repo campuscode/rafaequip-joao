@@ -5,6 +5,8 @@ feature 'User view contract price' do
     equipment = create(:equipment)
     contract = build(:contract, discount: 5)
     rental_period = create(:rental_period, period: 15)
+    create(:price, rental_period: rental_period, equipment: equipment,
+                   amount: 1500)
     today = Time.zone.today
     tomorrow = today + 1
     visit root_path

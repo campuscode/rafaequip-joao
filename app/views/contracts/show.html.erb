@@ -34,7 +34,7 @@
         <dt>Data de fim</dt>
         <dd>  <%= l(@contract.end_date) %></dd>
         <dt>Preço</dt>
-
+          <dd>  <%= number_to_currency( @contract.price) %></dd>
         <dt>Desconto</dt>
         <dd>  <%= number_to_currency( @contract.discount) %></dd>
         <dt>Preço Final</dt>

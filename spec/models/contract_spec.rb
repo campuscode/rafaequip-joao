@@ -3,11 +3,23 @@ require 'rails_helper'
 RSpec.describe Contract, type: :model do
   describe '#set_price' do
     it 'has 2 equipment' do
-      equip = create_pair(:equipment)
-      rp = RentalPeriod.new(period: 15)
-      create(:price, equipment: equip[0], rental_period: rp)
-      create(:price, equipment: equip[1], rental_period: rp)
-      contract = create(:contract, equipment: equip, rental_period: rp)
+      # equip = create_pair(:equipment)
+      # rp = RentalPeriod.new(period: 15)
+      # create(:price, equipment: equip[0], rental_period: rp)
+      # create(:price, equipment: equip[1], rental_period: rp)
+      # contract = create(:contract, equipment: equip, rental_period: rp)
+
+      equipment = create_pair(:equipment)
+      rental_period = create(:rental_period, period: 15)
+
+      create(:price, rental_period: rental_period, equipment: equipment[0],
+                     amount: 1500)
+      create(:price, rental_period: rental_period, equipment: equipment[1],
+                     amount: 1500)
+
+      contract = build(:contract, rental_period: rental_period)
+      contract.equipment << equipment
+      contract.save!
       expect(contract.price).to eq 3000.0
     end
   end
